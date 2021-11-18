@@ -3,6 +3,7 @@
 import discord
 import menu
 import datetime
+import os
 
 bot = discord.Client()
 bot_id = None
@@ -153,8 +154,6 @@ async def on_command_error(ctx, error):
     print(ctx.author, ":", ctx.message.content, ":", error)
 
 
-# The token of the bot is stored inside a file
-token = open("token.txt").read().rstrip()
-
-
+# token = open("token.txt").read().rstrip()
+token = os.environ['DISCORD_KEY']
 bot.run(token)
